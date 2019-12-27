@@ -1,0 +1,31 @@
+import bpy
+
+from tkinter import *
+root = Tk()
+
+
+#birth year
+#age
+#current year
+#age = currentyear - birthyear
+
+currentyear = Entry(root)
+birthyear = Entry(root)
+
+
+currentyear.pack()
+birthyear.pack()
+
+
+def cage():
+    
+    cur = currentyear.get()
+    bir = birthyear.get()
+    agelabel = Label(root, text = int(cur) - int(bir) ).pack()
+    
+    
+mybutton = Button(root, text = "do age", command = cage).pack()
+
+
+root.attributes('-topmost', 'true')
+root.mainloop()
