@@ -1,0 +1,41 @@
+import bpy
+import random
+
+from tkinter import *
+
+
+
+
+root = Tk()
+
+
+
+
+labelfirstword = Label(root, text = "Enter first word")
+labelsecondword = Label(root, text = "Enter second word")
+
+labelfirstword.grid(row = 0, column = 0)
+labelsecondword.grid(row = 1, column = 0)
+
+
+entryfirstword= Entry(root)
+entrysecondword = Entry(root)
+
+entryfirstword.grid(row = 0, column = 1)
+entrysecondword.grid(row = 1, column = 1)
+
+fword=entryfirstword.get()
+sword=entrysecondword.get()
+
+def outputlabel():
+    fword=entryfirstword.get()
+    sword=entrysecondword.get()
+    bword= list(fword + sword)
+    bword = random.sample(bword, len(bword))
+        
+    varoutputlabel= Label(root, text= bword)
+    varoutputlabel.grid(row = 3, column = 1).pack()
+
+
+shuffle = Button(root, text = "shuffle", command = outputlabel)
+shuffle.grid(row = 3, column = 0)
