@@ -1,0 +1,52 @@
+import bpy
+import math
+from tkinter import *
+
+
+
+root=Tk()
+#root.attributes('-topmost', 'true')
+
+list_animals = ['fox']
+list_numbers = [22]
+
+
+addanimals = Entry(root )
+addanimals.grid(row=0, column = 1)
+
+add_encounter_amount= Entry(root, borderwidth=5)
+add_encounter_amount.grid(row= 1, column =1)
+
+animal_label = Label(root, text = "please pick animal type")
+encounter_amount_Label = Label(root, text = "please pick encounter amount")
+
+animal_label.grid(row = 0, column =0, )
+encounter_amount_Label.grid(row =1, column=0)
+
+def AppendAnimals():
+    animals = addanimals.get()
+    list_animals.append(animals)
+    print(list_animals)
+    
+def AppendSize():
+    size = add_encounter_amount.get()
+    list_numbers.append(size)
+    print(size)
+    
+
+append_animals = Button(root, text = "append animals to list", command = AppendAnimals).grid(row=0, column=2)
+
+append_encounter_amount = Button(root, text = "Append encounter size to list" , command = AppendSize).grid(row=1, column=2)
+
+def mixit():
+    for i in list_animals:
+        index=list_animals.index(i%len(list_animals))
+        numbers=list_numbers[index]
+        #encounterset=[i,
+        print(numbers)
+
+mix= Button(root, text = "mix", command = mixit).grid(row=4, column=2)
+
+
+
+root.mainloop()
