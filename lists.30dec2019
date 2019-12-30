@@ -1,0 +1,52 @@
+import bpy
+
+list= ['dog', 'cat', 'dippy', 'human', 'porn', 'linus', 'strings', 'taxes', 'VA']
+
+#print(list)
+# #['dog', 'cat', 'dippy', 'human', 'porn', 'linus', 'strings', 'taxes', 'VA']
+# 
+#print(len(list))
+##9
+
+#print(list[0:len(list)])
+##['dog', 'cat', 'dippy', 'human', 'porn', 'linus', 'strings', 'taxes', 'VA']
+
+#print(list[-1]) # this will print the last index
+## VA
+
+#print(list[0:-1]) #will get you to the second to last index this way.
+##['dog', 'cat', 'dippy', 'human', 'porn', 'linus', 'strings', 'taxes']
+
+#print(len(list)) #9
+
+list.append('spaz')
+
+print(len(list)) #10
+
+#print(list)
+#['dog', 'cat', 'dippy', 'human', 'porn', 'linus', 'strings', 'taxes', 'VA', 'spaz']
+
+otherlist= ['jerk', 'lame', 'crass']
+
+#list.append(otherlist)
+
+#print(list)
+# ['dog', 'cat', 'dippy', 'human', 'porn', 'linus', 'strings', 'taxes', 'VA', 'spaz',['jerk', 'lame', 'crass']]
+
+#for i in otherlist:
+#    list.append(i)
+
+#print(list)
+# ['dog', 'cat', 'dippy', 'human', 'porn', 'linus', 'strings', 'taxes', 'VA', 'spaz', 'jerk', 'lame', 'crass']
+
+newlist =list+otherlist
+
+print(newlist)
+#['dog', 'cat', 'dippy', 'human', 'porn', 'linus', 'strings', 'taxes', 'VA', 'spaz', 'jerk', 'lame', 'crass']
+
+
+
+
+
+
+
