@@ -1,0 +1,29 @@
+import bpy
+from decimal import *
+from tkinter import *
+
+#root = Tk()
+#root.attributes('-topmost','true')
+
+
+
+f =8
+
+s= 7
+
+def calculate():
+    
+    i = f//s
+    n = f%s
+    d= i*s
+
+    outstr= str(i) + "_"+ str(n)+"/"+ str(d)
+
+    print(outstr)
+
+
+
+
+#root.mainloop()
+
+calculate()
