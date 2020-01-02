@@ -1,0 +1,47 @@
+import bpy
+from tkinter import *
+
+root= Tk()
+
+n=Label(root, text = "enter first number").pack()
+
+
+def printy(x):
+    printy = Label(root, text = x).pack()
+    
+def inputy():
+    ipps=Label(root, text = "tell me a number").pack()
+    epps=Entry(root)
+    epps.pack()
+    neps=Button(root, text = "thing" , command= thing)
+    neps.pack()
+    
+
+def thing():
+    dippy= {'jerks', 'assholes', 'spazes' , 'idiots'}
+    dippy.add("oramhr")
+    printy(dippy)
+    
+    derpy ={'ape', 'dorks', 'lips' , '2020'}
+    
+    duppy= dippy.union(derpy)
+    
+    printy(derpy)
+    
+    for i in duppy:
+        printy(i)
+    
+
+    
+#    thing=Label(root, text= dippy).pack()
+    
+
+
+
+
+
+calc= Button(root, text="do the thing",command = thing)
+calc.pack()
+
+root.attributes('-topmost', 'true')
+root.mainloop()
