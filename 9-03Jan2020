@@ -1,0 +1,19 @@
+from random import random
+import threading
+import time
+
+
+
+
+def main():
+
+
+    print("no")
+
+    time.sleep(random() *2 )
+    
+    print('tys')
+
+
+if __name__ == '__main__':
+    main()
