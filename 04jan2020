@@ -1,0 +1,24 @@
+import bpy
+
+
+
+def AppyModifiers():
+    for obj in bpy.context.selected_objects:
+
+        mycontext = bpy.context.copy()
+        mycontext['object'] = obj
+
+        for mod in obj.modifiers[:]:
+            mycontext['modifier'] = mod
+
+            try:
+                bpy.ops.object.modifier_apply(
+                                    mycontext, apply_as='DATA',
+                                    modifier=mycontext['modifier'].name
+                                    )
+            except:
+                pass
+
+
+
+AppyModifiers()
