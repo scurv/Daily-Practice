@@ -1,0 +1,24 @@
+import bpy
+from tkinter import *
+
+root = Tk()
+
+dork= []
+
+def dothing():
+    meh = e.get()
+    dork.append(meh)
+    print(dork)
+    epps = sorted(dork)
+    print(epps)
+    
+
+action = Button(root, text = "enter thing", command = dothing)
+
+action.grid( row=2, column = 1)
+
+e = Entry(root)
+
+e.grid(row=1, column = 2)
+
+root.mainloop()
