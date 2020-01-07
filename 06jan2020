@@ -1,0 +1,81 @@
+import bpy
+
+#Count Cameras
+
+#Check to see if they are indexed
+
+#add them to index
+
+#for camera in bpy.data.cameras:
+#    print( camera)
+
+
+#for area in bpy.context.screen.areas:
+#    if area.type == 'VIEW_3D':
+#        area.spaces[0].region_3d.view_perspective = 'CAMERA'
+#        break
+
+
+#bpy.context.scene.camera = bpy.data.objects["Camera.003"]
+#bpy.context.scene.camera = bpy.context.scene.objects["Camera1"]
+
+
+class MyCameraIndex(bpy.types.Operator):
+    bl_idname= "mine.cameraindex"
+    bl_label = "camera index"
+    
+    def execute(self, context):
+        
+        i = 0
+        for camera in bpy.data.cameras:
+            print(camera)
+            id = i
+            i = i +1
+            print(id)
+            
+        return{"FINISHED"}
+
+
+class CameraTools(bpy.types.Panel):
+     bl_idname = "VIEW_PT_CameraTools"
+     bl_label = "CameraTools"
+     bl_space_type = "VIEW_3D"
+     bl_region_type = 'UI'
+     bl_category = "Camera Tools"
+     
+     def draw(self,context):
+         layout = self.layout
+         obj = context.object
+         
+         row=layout.row()
+         self.layout.label(text = "CameraTools")
+         
+         row=layout.row()
+         self.layout.operator("mine.cameraindex")
+ 
+ 
+
+
+
+
+__classes__ = (
+CameraTools,
+MyCameraIndex,
+
+
+)
+
+
+
+def register():
+    for c in __classes__:
+        bpy.utils.register_class(c)
+        
+def unregister():
+    for c in __classes__:
+        bpy.utils.unregister_class(c)
+
+
+
+if __name__ == "__main__":
+    register()
