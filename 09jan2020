@@ -1,0 +1,39 @@
+import bpy
+import numpy
+from tkinter import *
+from scipy import stats
+
+
+root = Tk()
+
+speed = [99,86,87,88,111,86,103,87,94,78,77,85,86]
+
+
+
+#mean demo
+x = numpy.mean(speed)
+
+display = Label(root, text = "mean speed: " + str(x)).pack()
+
+#median demo, sort first.
+
+sorted = sorted(speed)
+
+display2 = Label(root, text = "sorted: " + str(sorted)).pack()
+medin = numpy.median(sorted)
+
+display3 = Label(root,text = "median: " + str(medin)).pack()
+
+modes = stats.mode(speed)
+display4 = Label(root,text="mode: " +  str(modes)).pack()
+
+dev = numpy.std(speed)
+display5 = Label(root, text = "deviation: " +  str(dev)).pack()
+
+
+veri = numpy.var(speed)
+
+display6 = Label(root, text = "variance :" + str(veri)).pack()
+
+root.attributes('-topmost', 'true')
+root.mainloop()
