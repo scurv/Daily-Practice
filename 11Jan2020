@@ -1,0 +1,41 @@
+from tkinter import *
+import bpy
+
+
+
+
+root = Tk()
+root.attributes('-topmost', 'true')
+
+print("ran loop")
+
+
+    
+def makewidget(i,w):
+    cell = Label(root, text =  str(i) +" - "+ str(w), relief=SUNKEN).grid(column = w, row = i)
+
+def county():
+    i = 0
+    w = 0
+    while i < 50:
+        
+        print( "i: " + str(i))
+        i = i+1
+        w = 0
+        while w < 10:
+            makewidget(i,w)
+            print( "w:" + str(w))
+            w=w+1
+        
+#print( "this is end" +str(i) +str(w) )
+    
+
+
+county()
+root.mainloop()    
+#import the csv
+
+#get the length of the list
+
+
+#send one row at a time to be made into widgets
