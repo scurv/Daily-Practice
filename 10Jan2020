@@ -1,0 +1,86 @@
+import bpy
+import csv
+import os
+from pandas import *
+
+from tkinter import *
+
+
+
+
+
+def printy(data):
+    root = Tk()
+    q=Button(root, text = 'quit', command=root.destroy)
+    q.pack()
+    printy = Label(root, text = data).pack()
+    
+    root.attributes('-topmost', 'true')
+    root.mainloop()
+
+d = open('temp\pokemon_data.csv')
+
+df = pandas.read_csv(d)
+
+#print(df.head(3)) #top rows
+
+#printy(df.tail(5)) # bottom rows
+
+#printy(df.columns) #prints out top row
+
+#printy(df['Name']) #by column name
+
+#printy(df[['Name', 'Type 1', 'HP']]) #by column name multible 
+
+#printy(df.iloc[1:4]) #to get rows
+
+#print(df.iloc[2,1])  # to get selected rows
+
+#for index, row in df.iterrows():
+#    print(index,row['Name'])  #to get just the desired columns from selected rows
+
+#print(df.loc[df['Type 1'] == "Fire"]) # gives me the types that equals to condition, note use print else it wont work.
+
+#print(df.describe())
+
+#print(df.sort_values(['Name', 'HP'], ascending = True))
+
+#printy(df.sort_values(['Name', 'HP'], ascending = [1,0]))
+
+#df['Total'] = df['HP'] + df['Attack'] # how to do math functions between rows
+#print(df['Total'])   
+#print("  " )
+#print(df)
+
+##df = df.drop(columns= 'Total')  #both of these seem to work for dropping a bit of data
+#df = df.drop(columns= ['Total'])
+
+
+df['Total'] = df.iloc[:, 4:9].sum(axis=1) #1 for horizontal and 0 for vertical. 
+
+#print(df.iloc[0:4, 0:])
+
+#df = df[['Defense' , 'HP']]  # orders the list like this 
+
+
+cols = list(df.columns)
+
+#print(cols)
+
+df = df[cols[0:4] +  ['Total'] + cols[4:12]] # can mix when reordering a list
+    
+#print(df.head(5))
+
+
+
+#print(os.path) # doing this with modified blender python causes some hinkyness
+df.to_csv(r'C:\Users\Josep\Desktop\blender-2.81a-modded\temp\modified.csv')
+
+#You have to place the r character before the path name, to take care of any symbols within the path name such as the backslash symbol which is used frequently. If you don’t use the r character it runs into an (unicode error) as shown:
+
+    
+print("    ")
+print("dork")
+print("    ")
+ 
+d.close()
