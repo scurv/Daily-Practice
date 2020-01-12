@@ -1,0 +1,70 @@
+import bpy
+import csv
+import os
+from pandas import *
+import time
+from tkinter import *
+from tabulate import tabulate
+
+
+
+#importfile  = open("temp\data.txt")
+#open("temp\data.txt").read()
+
+f = open('temp\SacramentocrimeJanuary2006.csv',  newline='')
+
+#cdatetime,address,district,beat,grid,crimedescr,ucr_ncic_code,latitude,longitude 
+ 
+df = pandas.read_csv(f)
+
+#print(tabulate(csv_f))
+
+
+ 
+ 
+ # lat numbers minus 38.437999
+ # long numbers minus -121.555832
+ 
+ # both times 40
+ 
+ # spawn in at xy loc
+ 
+#print(df.columns)
+ 
+ #print(df['longitude'])
+ 
+#print(df[['latitude', 'longitude']]) 
+ 
+
+df['lats'] = (df['latitude'] - 38.437999 ) * 500
+df['longs'] = (df['longitude'] - -121.555832) *500
+df = df[['lats' , 'longs', 'crimedescr']] 
+print(df)
+#bpy.context.object.active_material = bpy.data.materials['theft']
+
+for 'theft' in df['crimesescr']:
+    print("true")
+
+def generate():
+    df = df[['lats' , 'longs']] 
+    xxx = df.iloc[0 , 0]
+    yyy = df.iloc[0 , 1]
+    print(xxx)
+    print(yyy)
+
+    indexs = len(df)
+    print(indexs)
+    i = 0
+    while i < indexs:
+        print(i)
+        time.sleep(.1)
+        xxx = df.iloc[i , 0]
+        yyy = df.iloc[i , 1]
+        print(xxx)
+        print(yyy)
+        bpy.ops.mesh.primitive_ico_sphere_add(radius=1, enter_editmode=False, location=(xxx, yyy, 0))
+        i = i + 1
+
+
+print('dork')
+f.close()
