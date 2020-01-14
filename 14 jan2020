@@ -1,0 +1,28 @@
+import bpy
+import os
+import csv
+from pandas import *
+from pathlib import Path
+
+
+dir = []
+
+dir = os.listdir('temp')
+
+d = dir[3]
+entries = Path('temp/')
+#df = open()
+
+#dff = pandas.read_cvs(df)
+
+x = os.path.join(entries, d)
+
+xxx = open(x)
+
+df = pandas.read_csv(xxx)
+
+print(df)
+
+
+
+    
