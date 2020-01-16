@@ -1,0 +1,84 @@
+import bpy
+import os
+import csv
+from pathlib import Path
+from tkinter import *
+
+
+root = Tk()
+
+root.attributes('-topmost' , 'true') 
+ends = Button(root, text = 'quits', command = root.destroy).pack()   
+
+
+
+
+
+def printy(x):
+    for x in x:
+        panel2=Label(root, text =  x ).pack()
+
+def printx(x):
+    
+    panel2=Label(root, text =  x ).pack()
+
+
+
+def makepath(i):
+    dir = []
+    
+    dir = os.listdir('temp')
+    entries = Path('temp/')
+    x = dir[i]
+    paths = []
+    paths = os.path.join(entries, x)
+    #printx(paths)
+    return paths
+    
+file = 0    
+printx(makepath(file))
+
+with open(makepath(file), 'r') as csv_file:
+    csv_reader = csv.reader(csv_file)
+    
+    fout = os.path.join(Path('tempout'), 'new_names.csv')
+    with open(fout , 'w') as new_file:
+        csv_writer = csv.writer(new_file, delimiter= '\t')
+
+        for line in csv_reader:
+            csv_writer.writerow(line)
+        
+        
+
+
+
+#
+
+#
+
+
+#csv_writer.to_csv
+
+    
+    
+
+    
+    
+    
+
+
+
+
+
+
+root.mainloop()
+
+
+
+
+
+
+
+
+
+    
