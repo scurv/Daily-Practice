@@ -1,0 +1,16 @@
+def multi(*argv):
+    numberlist = []
+    #print(numberlist)
+    for arg in argv:
+        numberlist.append(arg)
+    firstm = numberlist.pop()
+    print(firstm)
+    print(numberlist)
+    for i in numberlist:
+        firstm = firstm * i
+    print(firstm)
+
+        
+        
+        
+multi( 4, 5, 6)
