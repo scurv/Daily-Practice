@@ -1,0 +1,8 @@
+
+text = " I'm doing this because Why The Fuck not"
+
+print(text)
+
+replacetext = text.replace( 'Fuck' , 'fudge')
+
+print(replacetext)
