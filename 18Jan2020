@@ -1,0 +1,26 @@
+import webbrowser
+import sys
+import os
+from selenium import webdriver
+#webbrowser.open('https://automatetheboringstuff.com')
+
+wd = os.getcwd()
+
+execpath = os.path.join(wd , '2.82' , 'python', 'geckodriver.exe')
+
+print(execpath)
+#binary = webdriver.FirefoxBinary(r'C:\Program Files\Mozilla Firefox\firefox.exe')
+
+#browser = webdriver.Firefox(firefox_binary=r'C:\Program Files\Mozilla Firefox\firefox.exe')
+#driver = webdriver.Firefox(executable_path = 'C:\\Users\\Josep\\Desktop\\blender282b\\2.82\\python\\geckodriver.exe')
+
+driver = webdriver.Firefox(executable_path = execpath)
+driver.get('https://automatetheboringstuff.com')
+
+
+
+
+
+
+
+#driver.get('https://www.google.com')
