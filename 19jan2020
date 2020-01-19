@@ -1,0 +1,13 @@
+import smtplib
+
+conn = smtplib.SMTP('smtp.gmail.com', 587)
+
+type(conn)
+
+conn.ehlo()
+
+conn.starttls()
+
+conn.login('email@gmail.com' , 'passy')
+
+conn.sendmail('email@gmail.com' , 'send to email@mail.com' , 'Subject: dork \n\n ok does this work \n\n')
