@@ -1,0 +1,57 @@
+
+import os
+import sys
+
+
+
+##        this r is important, just copy your folder path into here and keep it between the quotes
+targetfolder = r'C:\Users\bigmeanie\Videos'
+
+
+## add in file extensions to change here. 
+file_types_to_change = [ '.jpg' , ' .png' , '.blend', '.obj', '.TGA' ]
+
+renamefolders= False
+
+
+################### don't touch under here, well what am I
+######### talking about, I like to watch the world burn, touch all you want
+
+for i in file_types_to_change:
+    FTC = i.lower()
+    #print(FTC)
+
+FTC = file_types_to_change
+
+TD = targetfolder
+
+
+def renamelower(path, name):
+    lowername = os.path.join(path , name.lower())
+    uppername = os.path.join(path , name)
+    print(uppername)
+    os.rename( uppername , lowername)
+    
+    
+
+
+
+def filescan():
+    File_Index = []
+
+    for path, subfolders, filenames in os.walk(TD):
+        for name in filenames:
+            if name.islower() == False:
+                if any(s in name.lower() for s in FTC):
+                    renamelower(path, name)
+                
+            
+            
+
+        
+filescan()
+
+print( "")
+print("end of list")
+print( "")
+        
