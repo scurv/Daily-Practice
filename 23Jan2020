@@ -1,0 +1,46 @@
+import os
+from pathlib import Path
+import webbrowser
+import bs4
+import requests
+import re
+from bs4 import BeautifulSoup , SoupStrainer
+import httplib2
+import urllib3
+
+#x = r'\\'.join(['test','dork'])
+#x = os.sep
+#cLBvTDx > a > img
+
+
+cd = os.getcwd()
+
+wd = os.path.join( cd, r'\temp')
+#print(wd)
+
+#webbrowser.open( r'https://imgur.com/gallery')
+
+def spoofimgur():
+    headers = requests.utils.default_headers()
+    headers.update({ 'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0'})
+    url = "https://imgur.com/gallery"
+    req = requests.get(url,headers)
+    soup = BeautifulSoup(req.content ,"lxml"  )
+    
+
+    
+    #x = print(soup.prettify())
+    
+    #x = soup.find_all( class_ = 'post')
+    x = soup.find_all('a' , href = True)
+    for link in x:
+        print(link)
+
+
+    
+    
+    
+    
+    
+spoofimgur()
+
