@@ -1,0 +1,28 @@
+import bpy
+class SimpleOperator(bpy.types.Operator):
+    bl_idname = "mine.simple_operator"
+    bl_label = "Tool Name"
+
+    def execute(self, context):
+        print("Hello World")
+        return {'FINISHED'}
+
+def register():
+    bpy.utils.register_class(SimpleOperator)
+
+def unregister():
+    bpy.utils.unregister_class(SimpleOperator)
+
+if __name__ == "__main__":
+    register()
+    
+    
+    
+    ##test call
+#bpy.ops.object.simple_operator()
+#bpy.ops.mine.simple_operator()
+
+
+import bpy
+
+bpy.ops.mine.simple_operator()
