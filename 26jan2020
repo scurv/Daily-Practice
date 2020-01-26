@@ -1,0 +1,37 @@
+import random
+
+def random_direction():
+    ''' n, e,s,w go clockwise when assigning directions'''
+    dire = random.randint(0 , 3)
+    #dire = 3
+    return dire
+    
+def direction_decode():
+    nesw = random_direction()
+    if nesw == 0:
+        print('north')
+        return( 1,0)
+    elif nesw ==1:
+        print('east')
+        return(0,1)
+    elif nesw ==2:
+        print('south')
+        return(0,-1)
+    elif nesw ==3:
+        print('west')
+        return(-1,0)
+    else:
+        print("error")
+        
+       
+x=0
+y=0        
+      
+
+for i in range(10):
+    d = direction_decode()
+    print(d)
+    x = x + d[0]
+    y = y + d[1]
+    
+print( x , y )
