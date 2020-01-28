@@ -1,0 +1,25 @@
+import bpy
+import os
+
+pybin = bpy.app.binary_path_python
+
+def rootfolder():
+    blexe = bpy.app.binary_path
+
+    rf= os.path.split(blexe)
+    rootfolder = rf[0]
+    return str(rootfolder)
+
+rootfolder = rootfolder()
+
+print(os.listdir(rootfolder))
+
+t = os.path.join(rootfolder , r'2.82\python\lib\site-packages\pyqt5_tools\Qt\bin\designer')
+
+def designer():
+    os.startfile(t)
+    
+    
+cmd = r'C:\WINDOWS\system32\cmd.exe'
+
+os.startfile(cmd)
