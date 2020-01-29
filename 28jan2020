@@ -1,0 +1,44 @@
+import bpy
+import os
+import subprocess
+
+
+pybin = bpy.app.binary_path_python
+
+cmd = r'C:\WINDOWS\system32\cmd.exe'
+
+
+def rootfolder():
+    blexe = bpy.app.binary_path
+
+    rf= os.path.split(blexe)
+    rootfolder = rf[0]
+    return str(rootfolder)
+
+rootfolder = rootfolder()
+t = os.path.join(rootfolder , r'2.82\python\lib\site-packages\pyqt5_tools\Qt\bin\designer')
+
+inui = os.path.join(rootfolder, r'projects\untitled.ui')
+outpy = os.path.join(rootfolder, r'projects\test.py')
+
+def pyuic5():
+    py = os.path.join(rootfolder, r'2.82\python\Scripts\pyuic5')
+    subprocess.check_call([py, '-x', inui, '-o' , outpy  ])
+    print(inui)
+    
+
+
+
+
+
+def designer():
+    os.startfile(t)
+    
+def cmd():
+    os.startfile(cmd)
+    
+
+
+toexe = os.path.join(rootfolder, r'auto-py-to-exe-master\run.py')
+
+os.startfile(toexe)
