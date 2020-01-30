@@ -1,0 +1,47 @@
+from bs4 import BeautifulSoup
+import requests
+import bpy
+import os
+import lxml
+
+
+ 
+def rootfolder():
+    blexe = bpy.app.binary_path
+
+    rf= os.path.split(blexe)
+    rootfolder = rf[0]
+    return str(rootfolder)
+
+rootfolder = rootfolder()
+outpath = os.path.join(rootfolder, r'projects\something.txt')
+
+#outfile = open(outpath, 'w')
+#outfile.write(' ')
+#outfile.close()
+ 
+wp = 'http://books.toscrape.com/catalogue/category/books_1/index.html'
+ 
+test = requests.get(wp)
+ 
+print(type(test))
+
+print(test.__getstate__)
+soup = BeautifulSoup(test.content, features="lxml")
+
+#outfile = open(outpath, 'w')
+#outfile.write(soup.text)
+#outfile.close()
+#print(test.text)
+
+#print(soup.head)
+
+llist = []
+t = soup.find_all('a')
+
+for link in t:
+    llist.append(link)
+    
+    outfile = open(outpath, 'a')
+    outfile.write(str(link))
+    outfile.close()
