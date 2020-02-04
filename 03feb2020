@@ -1,0 +1,36 @@
+import bpy
+import cmath
+
+def addorb(x,y,z):
+    bpy.ops.object.metaball_add(type='BALL', radius=1, enter_editmode=False, location=(x,y,z))
+    bpy.ops.wm.redraw_timer(type='DRAW_WIN_SWAP', iterations=1)
+    
+    
+def mathstuff():    
+        
+    i = -2    
+        
+    while i < 2.0:
+        x = i * 5
+        addorb(x,y,z)
+        i = i + .1
+        
+def complexnumbers():    
+    c = cmath.sqrt(-9)
+
+
+    print(" ---start of line---")
+    print(c)
+    print(c.real)
+    print(c.imag)
+    print(" ---end of line---")
+    
+    
+def loops():
+    t= 0
+    for i in range(5):
+        
+        t = t**2 +1
+        print(t)
+        
+loops()
