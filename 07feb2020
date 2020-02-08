@@ -1,0 +1,47 @@
+import bpy
+import cmath
+import math
+
+def addorb(x,y,z):
+    bpy.ops.object.metaball_add(type='BALL', radius=1, enter_editmode=False, location=(x,y,z))
+    bpy.ops.wm.redraw_timer(type='DRAW_WIN_SWAP', iterations=1)
+
+
+
+
+def mehs(i,y,z):
+    x = i 
+    z=z*30
+    print(x,y,z)
+    addorb(x,y,z)
+    
+
+def rcount():
+    r= 2.0
+    y=0.0
+    while r < 6:
+        r = r + 0.02
+        y = y + 5
+    
+    
+        z = .1
+        for i in range(25):
+            z = r * z *(1 - z)
+            mehs(i,y,z)
+            
+            
+            
+#rcount()
+
+
+def rcount2():
+    r=-50.0
+
+    while r < 50:
+        r = r + 0.1
+
+        z = math.tan(r)
+        y=0
+        mehs(r,y,z)
+
+rcount2()        
