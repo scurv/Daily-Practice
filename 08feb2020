@@ -1,0 +1,18 @@
+import bpy
+import cmath
+import random
+
+
+
+def rcount():
+    r= 3
+    s = random.random()
+    z = .1
+    for i in range(250):
+        s = random.random()
+        
+        z = (r-s) * z *(1 - z)
+        print(z)
+            
+print("testy")            
+rcount()
